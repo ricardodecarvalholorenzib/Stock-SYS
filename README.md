@@ -1,120 +1,81 @@
-# 📦 Sistema de Gerenciamento de Estoque
+# 📦 Stock-SYS
 
-> Sistema de gerenciamento de estoque desenvolvido em Python e executado diretamente via terminal.
+Sistema de gerenciamento de estoque desenvolvido em **Python** para execução no terminal.
 
-O projeto permite cadastrar e gerenciar produtos, controlar funcionários, administrar o saldo de caixa do sistema e configurar o perfil do operador com autenticação segura.
+O projeto foi criado para praticar estruturas de dados, persistência em JSON, tratamento de erros, menus interativos e organização de uma aplicação de linha de comando.
 
----
+> 🟡 **Status:** em desenvolvimento — versão 1.5.
 
 ## ✨ Funcionalidades
 
-### 📦 Estoque
-* **Cadastro:** Cadastrar novos produtos com ID único.
-* **Visualização:** Consultar o estoque atual e identificar produtos com estoque baixo.
-* **Edição:** Alterar nome, quantidade, preço e peso dos produtos.
-* **Remoção:** Remover unidades específicas ou excluir produtos do estoque.
+- 📦 Cadastro, edição e remoção de produtos
+- 🔎 Consulta do estoque e aviso de estoque baixo
+- 👥 Cadastro e gerenciamento de funcionários
+- 💰 Controle de caixa
+- 🔐 Senha protegida por hash SHA-256
+- ⚙️ Configurações do operador
+- 💾 Salvamento automático em `estoque.json`
+- ⌨️ Navegação pelo teclado usando as setas e `ENTER`
+- 🎨 Interface colorida no terminal
 
-### 👥 Funcionários
-* **Gestão:** Adicionar, visualizar, editar (nome, salário, cargo, data de nascimento) e remover funcionários.
-* **Destaque:** Definir e visualizar o *Funcionário do Mês*.
+## 🛠️ Tecnologias
 
-### 💰 Controle de Caixa
-* Adicionar e subtrair valores do saldo.
-* Consultar saldo atual em tempo real.
-* Adicionar automaticamente ao caixa o valor de produtos removidos/vendidos.
+- Python 3
+- `colorama` — cores no terminal
+- `json` — armazenamento dos dados
+- `hashlib` — hash da senha
+- `msvcrt` — leitura das teclas no Windows
+- Bibliotecas padrão: `datetime`, `os`, `random`, `sys` e `time`
 
-### 🔐 Sistema de Autenticação
-* Proteção por senha ao iniciar o sistema.
-* Criptografia e armazenamento seguro utilizand **SHA-256**.
-* Opção para alterar a senha cadastrada.
+## ▶️ Como executar
 
-### ⚙️ Configurações
-* Alterar nome do operador e senha.
-* Reiniciar o sistema.
-* Excluir todos os dados salvos (Reset).
+### Pré-requisito
 
-### 🖥️ Interface no Terminal
-* Menu interativo navegável pelas **setas do teclado**.
-* Interface estilizada e colorida no terminal.
-* Mensagens de confirmação, alertas e exibição de data e horário.
+Tenha o **Python 3** instalado.
 
----
+### Dependência externa
 
-## 💾 Armazenamento de Dados
+O projeto utiliza apenas uma biblioteca externa:
 
-Os dados são armazenados localmente em um arquivo `estoque.json`, garantindo persistência automática após alterações importantes.
-
-O arquivo armazena:
-* Nome do operador
-* Produtos cadastrados
-* Lista de funcionários
-* Saldo em caixa
-* Dados de autenticação (hash da senha)
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-* **[Python 3](https://www.python.org/)** — Linguagem principal
-* **`json`** — Persistência de dados
-* **`colorama`** — Estilização de cores no terminal
-* **`hashlib`** — Criptografia de senhas (SHA-256)
-* **`msvcrt`** — Captura de teclas para navegação no menu
-* **`datetime`**, **`os`**, **`random`** — Utilitários do sistema
-
----
-
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
-Certifique-se de ter o **Python 3** instalado em sua máquina.
-
-### 1. Clonar o repositório
 ```bash
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-cd seu-repositorio
-2. Instalar as dependências
-Bash
 pip install colorama
-3. Executar a aplicação
-Bash
-python main.py
-Observação: Atualmente, o projeto está concentrado em um único arquivo Python. Uma futura atualização irá modularizar o código em diferentes arquivos e pastas para melhorar a organização e manutenção.
+```
 
-📌 Versão Atual: v1.5
-Principais novidades da versão:
+### Executar
 
-🎨 Nova interface colorida e menu interativo.
+O arquivo principal atualmente se chama `Stock Sys.py`:
 
-🔒 Sistema de senha com hash SHA-256.
+```bash
+python "Stock Sys.py"
+```
 
-👥 Módulo completo de gerenciamento de funcionários.
+> ⚠️ O projeto utiliza `msvcrt`, portanto a navegação por teclado foi feita pensando principalmente em **Windows**.
 
-⚙️ Novas opções no menu de Configurações e Sair.
+## 💾 Dados locais
 
-🚧 Próximos Passos (Roadmap)
-[ ] Separar o código em módulos e pastas (Refatoração).
+Na primeira execução, o programa cria e utiliza o arquivo `estoque.json` para guardar os dados do sistema.
 
-[ ] Melhorar a validação de entradas do usuário.
+Esse arquivo contém informações como produtos, funcionários, saldo e o hash da senha. **Não compartilhe um `estoque.json` real**, principalmente se ele contiver dados pessoais ou informações de uso do sistema.
 
-[ ] Tratar exceções adicionais e corrigir bugs conhecidos.
+## 📁 Estrutura atual
 
-[ ] Refatorar funções extensas para código limpo (Clean Code).
+```text
+Stock-SYS/
+├── Stock Sys.py
+├── README.md
+└── .gitignore
+```
 
-[ ] Adicionar novas funcionalidades de relatórios em PDF/CSV.
+O projeto ainda está concentrado em um único arquivo Python. Uma próxima etapa natural é separar as funcionalidades em módulos.
 
-📚 Objetivo do Projeto
-Este projeto foi desenvolvido com o propósito de praticar e aprimorar conceitos fundamentais e intermediários em Python, tais como:
+## 🚧 Próximos passos
 
-Estruturas de dados (Listas e Dicionários)
+- [ ] Separar o sistema em módulos
+- [ ] Melhorar validações e tratamento de exceções
+- [ ] Refatorar funções muito extensas
+- [ ] Adicionar relatórios
+- [ ] Melhorar testes e organização do projeto
 
-Manipulação de arquivos (JSON)
+## 📚 Objetivo
 
-Hashing e Segurança básica (hashlib)
-
-Tratamento de erros e exceções
-
-Construção de menus interativos no terminal
-
-📌 Status do Projeto
-🟡 Em desenvolvimento O sistema possui diversas funcionalidades prontas, mas continua recebendo melhorias e refatorações constantes.
+Projeto de estudo para praticar Python criando uma aplicação de terminal mais completa, em vez de apenas pequenos exercícios isolados.
